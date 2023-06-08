@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+% \documentclass[twoside,twocolumn]{article}
+\documentclass[oneside,onecolumn]{article}
+\usepackage{ctex}
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm}
+\usepackage{mathptmx}
+
+%%\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+\usepackage[hmarginratio=1:1,columnsep=20pt]{geometry} % Document margins
+\geometry{a4paper,scale=0.8}
+\usepackage[small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\arabic{section}} % arabic numerals for the sections
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+% \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large\scshape}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage[svgnames]{xcolor} % added by Wenyin for color
+% \usepackage{hyperref} % For hyperlinks in the PDF
+\usepackage[colorlinks=true,linkcolor=Maroon,anchorcolor=blue,citecolor=RoyalBlue,filecolor=blue,menucolor=blue,runcolor=blue,urlcolor=DodgerBlue]{hyperref} % For hyperlinks in the PDF
+
+% for multiple references with dash
+\usepackage[noadjust]{cite}
+\renewcommand{\citedash}{--}    % when \usepackage{cite}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+
+\interfootnotelinepenalty=10000 %% Completely prevent breaking of footnotes
+
+\usepackage{marginnote} % for \marginnote{text}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs} % for \mathscr
+
+
+\usepackage[T1]{fontenc}
+% To use \mdutchcal{ } as \mathcal of package dutchcal, the following commands are needed, from https://imathworks.com/tex/tex-latex-new-locally-defined-mathcal-font-for-math-equations/
+% Based on the code from mathalpha.sty: 
+\DeclareFontFamily{U}{dutchcal}{\skewchar \font =45}
+\DeclareFontShape{U}{dutchcal}{m}{n}{
+	<-> dutchcal-r}{}
+\DeclareFontShape{U}{dutchcal}{b}{n}{
+	<-> dutchcal-b}{}
+\DeclareMathAlphabet{\mdutchcal}{U}{dutchcal}{m}{n}
+\SetMathAlphabet{\mdutchcal}{bold}{U}{dutchcal}{b}{n}
+\DeclareMathAlphabet{\mdutchbcal} {U}{dutchcal}{b}{n}
+
+% \usepackage{unicode-math} % for bold math font
+% \setmathfont{XITS Math}
+
+% vector, matrix and tensor
+% \newcommand{\vect}[1]{\boldsymbol{#1}}
+% \newcommand{\vect}{\symbf}
+% \newcommand{\vect}{\mathbf} % works for English letters but not for Greek letters 
+\newcommand{\vect}[1]{\mathbf{\boldsymbol{#1}}} % works for both English and Greek letters, but it does not work with mathtime pro lite fonts, see https://tex.stackexchange.com/questions/3535/bold-math-automatic-choice-between-mathbf-and-boldsymbol-for-latin-and-greek 
+% \newcommand{\matr}[1]{\boldsymbol{\mathrm{#1}}} % \matrix is defined in LaTeX2e kernel
+\newcommand{\tens}[1]{\boldsymbol{\mathrm{#1}}}
+
+\usepackage{mathtools} % for $\intertext{text}$
+
+% for footnote without number, from https://tex.stackexchange.com/questions/170511/footnotes-without-numbering
+\let\svthefootnote\thefootnote
+% \textheight 1in
+\newcommand\blankfootnote[1]{%
+	\let\thefootnote\relax\footnotetext{#1}%
+	\let\thefootnote\svthefootnote%
+}
+\let\svfootnote\footnote
+\renewcommand\footnote[2][?]{%
+	\if\relax#1\relax%
+	\blankfootnote{#2}%
+	\else%
+	\if?#1\svfootnote{#2}\else\svfootnote[#1]{#2}\fi%
+	\fi
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+	\posttitle{\end{center}} % Article title closing formatting
+\title{Magnetohydrodynamic hybrid simulation model with kinetic thermal ions and energetic particles}
+\author{Y Todo,M Sato,M Sato,M Idouakass,R Seki}
+\date{} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+	\begin{abstract}
+		一个新的动理学-磁流体力学混合模拟模型被提出
+	\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	\begin{sloppypar}
+		% Print the title
+		\maketitle
+		%----------------------------------------------------------------------------------------
+		%	ARTICLE CONTENTS
+		%----------------------------------------------------------------------------------------
+		
+\section{简介}
+		
+\section{参考文献}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[max width=0.7\textwidth,max height=1.0\textheight]{}
+	\caption{}
+	\label{fig1}
+\end{figure}
+
+\begin{equation}
+	
+\end{equation}
+	%----------------------------------------------------------------------------------------
+\end{sloppypar}	
+\end{document}
