@@ -1,20 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Journal Article
-% LaTeX Template
-% Version 1.4 (15/5/16)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
-% Vel (vel@LaTeXTemplates.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
@@ -58,10 +41,12 @@
 
 \usepackage{fancyhdr} % Headers and footers
 \pagestyle{fancy} % All pages have headers and footers
-\fancyhead{} % Blank out the default header
-\fancyfoot{} % Blank out the default footer
+\fancyhf{} % Clear default header and footer
+\fancyfoot[C]{\thepage} % Add page number to the center of the footer
+\renewcommand{\headrulewidth}{0pt}
 
 \usepackage{titling} % Customizing the title section
+\date{}
 
 \usepackage[svgnames]{xcolor} % added by Wenyin for color
 % \usepackage{hyperref} % For hyperlinks in the PDF
@@ -75,17 +60,12 @@
 \usepackage[export]{adjustbox}
 \graphicspath{ {./images/} }
 
-
-\interfootnotelinepenalty=10000 %% Completely prevent breaking of footnotes
-
-\usepackage{marginnote} % for \marginnote{text}
-
-
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{mathrsfs} % for \mathscr
-
+\usepackage{booktabs}
+\usepackage{multirow}
 
 \usepackage[T1]{fontenc}
 % To use \mdutchcal{ } as \mathcal of package dutchcal, the following commands are needed, from https://imathworks.com/tex/tex-latex-new-locally-defined-mathcal-font-for-math-equations/
@@ -136,39 +116,44 @@
 
 \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
 	\posttitle{\end{center}} % Article title closing formatting
-\title{Magnetohydrodynamic hybrid simulation model with kinetic thermal ions and energetic particles}
-\author{Y Todo,M Sato,M Sato,M Idouakass,R Seki}
-\date{} % Leave empty to omit a date
+\title{}
+\author{Author1, Author2}
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-		一个新的动理学-磁流体力学混合模拟模型被提出
 	\end{abstract}
 }
 
 %----------------------------------------------------------------------------------------
 
 \begin{document}
-	\begin{sloppypar}
-		% Print the title
-		\maketitle
-		%----------------------------------------------------------------------------------------
-		%	ARTICLE CONTENTS
-		%----------------------------------------------------------------------------------------
-		
-\section{简介}
-		
-\section{参考文献}
+\begin{sloppypar}
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[max width=0.7\textwidth,max height=1.0\textheight]{}
-	\caption{}
-	\label{fig1}
-\end{figure}
+\maketitle
 
-\begin{equation}
-	
-\end{equation}
+\clearpage
+\section*{References}
 	%----------------------------------------------------------------------------------------
 \end{sloppypar}	
 \end{document}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[max width=0.6\textwidth,max height=1.0\textheight]{}
+	\caption{}
+	\label{}
+\end{figure}
+
+\begin{equation}
+\end{equation}
+
+\begin{table}[ht]
+	\centering
+	\caption{Table Title}
+	\begin{tabular}{ccc}
+		\toprule \toprule
+		H1 & H2 & H3 \\
+		\hline
+		A1 & A2 & A3 \\
+		\bottomrule \bottomrule
+	\end{tabular}
+\end{table}
