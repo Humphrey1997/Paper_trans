@@ -28,7 +28,7 @@ input_file_path = 'tex_file/'+content+'.tex'
 template_file_path = 'tex_file/template.tex'
 typeset_file_path = 'tex_file/typeset.tex'
 
-with open(input_file_path, 'r') as file_0:
+with open(input_file_path, 'r',encoding='UTF-8') as file_0:
     tex_0 = file_0.readlines()
 with open(template_file_path, 'r',encoding='utf-8') as file_1:
     tex_1 = file_1.readlines()
